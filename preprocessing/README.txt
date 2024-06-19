@@ -1,4 +1,4 @@
-STEP STEP DALAM PRE PROCESSING!
+STEP STEP DALAM PRE PROCESSING
 
 1. Cek Format Gambar dan Di seragamkan
 2. Cek Size - Before Resize
