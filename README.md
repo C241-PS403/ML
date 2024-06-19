@@ -10,4 +10,4 @@ WHAT ARE THE STEPS IN PREPROCESSING
 7. Check Contrast
 8. Increase Contrast
 9. Image Augmentation
-10. Split Image Data    
+10. Split Image Data
