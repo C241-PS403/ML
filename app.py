@@ -7,7 +7,7 @@ import os
 
 app = Flask(__name__)
 
-model = load_model("D:\Teknik Informatika\SMT 6\BANGKIT 2024\Capstone\deploy-BatiKu\model.h5")
+model = load_model("D:\Teknik Informatika\SMT 6\BANGKIT 2024\Capstone\deploy-BatiKu\deploy-model.h5")
 print("Loaded model from disk")
 
 motif_info = {
