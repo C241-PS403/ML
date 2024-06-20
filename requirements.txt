@@ -2,3 +2,8 @@ Flask==1.1.2
 Keras==3.3.2
 numpy==1.23.5
 tensorflow==2.16.1
+scikit-learn==1.2.1
+seaborn==0.12.2
+matplotlib==3.7.0
+opencv-python==4.8.1.78
+imgaug==0.4.0

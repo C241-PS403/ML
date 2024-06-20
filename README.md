@@ -1,67 +1,83 @@
-# BatiKu Motif Classification API
+# BatiKu Model Deployment
 
-This repository contains a Flask application for classifying batik motifs using a pre-trained Keras model. The application accepts image uploads and returns the predicted batik motif along with the confidence level.
+This repository contains code for deploying a machine learning model for Batik motif classification using a Flask web application. The model predicts the motif of a Batik image provided by the user.
 
 ## Project Structure
 
-- `app.py`: Main Flask application file that handles HTTP requests and runs the model prediction.
-- `model.h5`: Pre-trained Keras model used for classifying the batik motifs.
+- **dataset/**: Contains the raw Batik image dataset.
+- **output_dataset/**: Contains the Batik image dataset after preprocessing.
+- **split_dataset/**: Contains the Batik image dataset split into training, validation, and test sets.
+- **.gitignore**: Specifies files and directories to be ignored by git.
+- **README.md**: This file, providing an overview and setup instructions.
+- **app.py**: Flask web application for deploying the trained model and making predictions.
+- **batiku.ipynb**: Jupyter notebook for training the Batik motif classification model.
+- **model.h5**: Trained machine learning model.
+- **requirements.txt**: List of dependencies required to run the application.
 
-## Setup and Installation
+## Installation
 
-### Prerequisites
+To run the application locally, follow these steps:
 
-Ensure you have the following installed:
-
-- Python 3.6+
-- Flask
-- Keras
-- TensorFlow
-- NumPy
-
-### Installation
-
-1. Clone the repository and switch to the `deploy-model` branch:
+1. **Clone the repository**:
 
    ```bash
    git clone https://github.com/C241-PS403/ML.git
    cd ML
-   git checkout deploy-model
    ```
 
-2. Create a virtual environment and activate it:
+2. **Create a virtual environment**:
 
    ```bash
    python -m venv venv
-   source venv/bin/activate  # On Windows use `venv\Scripts\activate`
    ```
 
-3. Install the required packages:
+3. **Activate the virtual environment**:
+
+   - On Windows:
+
+     ```bash
+     venv\Scripts\activate
+     ```
+
+   - On macOS/Linux:
+
+     ```bash
+     source venv/bin/activate
+     ```
+
+4. **Install the dependencies**:
 
    ```bash
    pip install -r requirements.txt
    ```
 
-4. Place your pre-trained model (`model.h5`) in the project directory.
+## Training the Model
 
-## Running the Application
+The `batiku.ipynb` notebook contains the code to preprocess the dataset, augment images, train the model, and evaluate its performance. To train the model, run the notebook in a Jupyter environment.
 
-1. Ensure your model is named `model.h5` and is placed in the root directory of the project.
-2. Start the Flask application:
+## Running the Flask Application
+
+1. **Ensure the model file is in the correct path**:
+
+   Make sure the `model.h5` file is located at the specified path in `app.py`.
+
+2. **Run the Flask application**:
 
    ```bash
    python app.py
    ```
 
-3. The application will be running at `http://127.0.0.1:5000/`.
+3. **Access the application**:
 
-## Usage
+   Open your browser and go to `http://127.0.0.1:5000/` to see the Flask app running.
 
-### Predicting Batik Motifs
+## Making Predictions
 
-To classify a batik motif, send a POST request to the `/predict` endpoint with an image file.
+To make predictions, you can use the `/predict` endpoint. You can send a POST request with an image file. The application will return the predicted Batik motif and the confidence score.
 
-Example using `curl`:
+### Example
+
+Use the following `curl` command to make a prediction:
 
 ```bash
 curl -X POST -F 'file=@path_to_your_image.jpg' http://127.0.0.1:5000/predict
